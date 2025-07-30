@@ -1,0 +1,24 @@
+{
+    "certifications": [
+        {
+            "title": "Industrial Electricity Maintenance Technician Diploma",
+            "year": "2021/2022",
+            "institution": "Specialized Industrial Institute"
+        },
+        {
+            "title": "Electrical Installation Qualification Diploma",
+            "year": "2019",
+            "institution": ""
+        }
+    ],
+    "skills": [
+        {
+            "name": "Industrial electrical maintenance",
+            "level": 90
+        },
+        {
+            "name": "Electrical troubleshooting",
+            "level": 85
+        }
+    ]
+}

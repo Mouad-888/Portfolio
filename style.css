@@ -1,0 +1,155 @@
+:root {
+    --electric-blue: #00a8ff;
+    --industrial-yellow: #ffd700;
+    --dark-gray: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a2a3a, #0d1b2a);
+    color: white;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.cursor {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--electric-blue);
+    position: fixed;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 9999;
+    transition: transform 0.2s ease;
+}
+
+.cursor-click {
+    transform: scale(0.8);
+    background-color: var(--industrial-yellow);
+}
+
+.circuit-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="10" y="10" width="2" height="80" fill="%2300a8ff" opacity="0.2"/><rect x="20" y="20" width="2" height="60" fill="%2300a8ff" opacity="0.2"/><circle cx="50" cy="50" r="2" fill="%2300a8ff" opacity="0.2"/></svg>');
+    background-size: 100px 100px;
+    animation: circuitFlow 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes circuitFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+
+header {
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 0;
+    background: linear-gradient(to right, var(--electric-blue), var(--industrial-yellow));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--electric-blue);
+    animation: spark 2s infinite;
+}
+
+@keyframes spark {
+    0% { box-shadow: 0 0 5px var(--electric-blue); }
+    50% { box-shadow: 0 0 20px var(--electric-blue); }
+    100% { box-shadow: 0 0 5px var(--electric-blue); }
+}
+
+section {
+    padding: 3rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    background: rgba(44, 62, 80, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 168, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 168, 255, 0.4);
+}
+
+.timeline {
+    position: relative;
+    padding-left: 50px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--electric-blue);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -40px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--industrial-yellow);
+    border: 3px solid var(--electric-blue);
+}
+
+.skill-meter {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background: linear-gradient(to right, var(--electric-blue), var(--industrial-yellow));
+    animation: fillSkill 1.5s ease-out forwards;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+
+@keyframes fillSkill {
+    to { transform: scaleX(1); }
+}
+
+.cert-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(0, 168, 255, 0.1);
+    border-left: 3px solid var(--industrial-yellow);
+}
